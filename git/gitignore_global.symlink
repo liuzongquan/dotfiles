@@ -1,7 +1,10 @@
 .DS_Store
+ghostdriver.log
 Thumbs.db
 *~
 *.swp
+*.swo
+*.pyc
 .AppleDouble
 .LSOverride
 Icon
@@ -18,3 +21,7 @@ Icon
 
 # typescript command garbage
 tscommand*.txt
+
+# program logs
+logs/
+_site/

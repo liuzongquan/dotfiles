@@ -84,23 +84,23 @@
     pr  = "!f() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
     pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
 [color]
-    diff = auto
+	diff = auto
     status = auto
     branch = auto
     interactive = auto
     ui = auto
 [color "branch"]
-    current = green bold
+    current = green
     local = green
-    remote = red bold
+    remote = red
 [color "diff"]
-    meta = yellow bold
-    frag = magenta bold
-    old = red bold
-    new = green bold
+    meta = yellow
+    frag = magenta
+    old = red
+    new = green
 [color "status"]
-    added = green bold
-    changed = yellow bold
+    added = green
+    changed = yellow
     untracked = red
 [color "sh"]
     branch = yellow
