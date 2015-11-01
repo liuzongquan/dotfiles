@@ -24,7 +24,7 @@ if [ "$(uname)" == "Darwin" ]; then
     mv /usr/local/etc/nginx/nginx.conf /usr/local/etc/nginx/nginx.original
     ln -s ~/.dotfiles/nginx/nginx.conf /usr/local/etc/nginx/nginx.conf
     # symlink the code.dev from dotfiles
-    ln -s ~/.dotfiles/nginx/code.dev /usr/local/etc/nginx/sites-enabled/code.dev
+    ln -s ~/.dotfiles/nginx/sites-enabled/code.dev /usr/local/etc/nginx/sites-enabled/code.dev
 fi
 
 echo "creating vim directories"
@@ -32,6 +32,9 @@ mkdir -p ~/.vim-tmp
 
 
 echo "Configuring zsh as default shell"
+# if /usr/local/bin/zsh not in /etc/shells, then u will get 'non-standard shell' error.
+# so uncomment follow line manually, and add it.
+# which zsh | sudo tee -a /etc/shells
 chsh -s $(which zsh)
 
 echo "Done."

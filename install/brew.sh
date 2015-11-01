@@ -32,4 +32,3 @@ brew install markdown
 brew tap neovim/neovim
 brew install --HEAD neovim
 
-exit 0
