@@ -2,6 +2,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 " colorschemes
 Plug 'chriskempson/base16-vim'
+Plug 'altercation/vim-colors-solarized'
 
 
 " utilities
@@ -200,8 +201,8 @@ syntax on
 set encoding=utf8
 let base16colorspace=256  " Access colors present in 256 colorspace"
 set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors"
-execute "set background=".$BACKGROUND
-execute "colorscheme ".$THEME
+set background=dark
+colorscheme solarized
 
 " set number " show line numbers
 " set relativenumber " show relative line numbers
