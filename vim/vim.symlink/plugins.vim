@@ -8,6 +8,7 @@ call plug#begin('~/.vim/plugged')
 "
 " colorschemes
 Plug 'chriskempson/base16-vim'
+Plug 'altercation/vim-colors-solarized'
 
 
 Plug 'kien/ctrlp.vim'
