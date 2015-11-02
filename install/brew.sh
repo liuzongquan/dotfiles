@@ -27,6 +27,7 @@ brew install highlight
 brew install nvm
 brew install z
 brew install markdown
+brew install pyenv
 
 # install neovim
 brew tap neovim/neovim
