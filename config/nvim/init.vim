@@ -8,6 +8,7 @@ Plug 'altercation/vim-colors-solarized'
 " utilities
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] } | Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'ryanoasis/vim-devicons'
+Plug 'scrooloose/nerdcommenter'
 Plug 'mileszs/ack.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
@@ -64,8 +65,12 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'timcharper/textile.vim', { 'for': 'textile' }
 " Plug 'tclem/vim-arduino'
 " Plug 'davidoc/taskpaper.vim'
-Plug 'Valloric/YouCompleteMe'
 Plug 'klen/python-mode'
+
+Plug 'Valloric/YouCompleteMe'
+" Track the engine.
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 call plug#end()
 
@@ -534,25 +539,26 @@ let g:python_host_prog = '/usr/local/bin/python'
 " let g:pymode_lint_ignore = 'E501'
 let g:pymode_lint_checkers = ['pep8']
 let g:pymode_rope_completion = 0
-let g:pymode_rope_goto_definition_bind = '<leader>g'
-let g:pymode_rope_goto_definition_cmd = 'vnew'
+" let g:pymode_rope_goto_definition_bind = '<leader>g'
+" let g:pymode_rope_goto_definition_cmd = 'vnew'
 nnoremap <leader>f :PymodeLintAuto<CR>
 
 
 " map 'jk' for move in autocomplete popup window.
-function! OmniPopup(action)
-    if pumvisible()
-        if a:action == 'j'
-            return "\<C-N>"
-        elseif a:action == 'k'
-            return "\<C-P>"
-        endif
-    endif
-    return a:action
-endfunction
-
-inoremap <silent>j <C-R>=OmniPopup('j')<CR>
-inoremap <silent>k <C-R>=OmniPopup('k')<CR>
+" Has Problem
+" function! OmniPopup(action)
+"     if pumvisible()
+"         if a:action == 'j'
+"             return "\<C-N>"
+"         elseif a:action == 'k'
+"             return "\<C-P>"
+"         endif
+"     endif
+"     return a:action
+" endfunction
+" 
+" inoremap <silent>j <C-R>=OmniPopup('j')<CR>
+" inoremap <silent>k <C-R>=OmniPopup('k')<CR>
 
 
 " when quit vim, automatically close quickfix windows.
@@ -571,7 +577,14 @@ let g:ycm_complete_in_comments = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_goto_buffer_command = 'vertical_split'
-nnoremap <leader>gd :YcmCompleter GoTo<CR>
+nnoremap <leader>g :YcmCompleter GoTo<CR>
+
+
+" UltiSnips Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-s-j>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 
 if (has("gui_running"))
