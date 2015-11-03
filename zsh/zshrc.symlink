@@ -28,7 +28,7 @@ for config ($ZSH/**/*completion.sh) source $config
 
 export EDITOR='nvim'
 
-export PATH=/usr/local/bin:$PATH
+# export PATH=/usr/local/bin:$PATH
 
 # add /usr/local/sbin
 if [[ -d /usr/local/sbin ]]; then
@@ -67,3 +67,9 @@ if hash brew 2>/dev/null; then
     source $(brew --prefix nvm)/nvm.sh
     source `brew --prefix`/etc/profile.d/z.sh
 fi
+
+# python
+export PYTHONPATH=/usr/local/lib/python2.7/site-packages:/Library/Python/2.7/site-packages
+
+# android:
+export PATH=$PATH:~/Library/Android/sdk/platform-tools/

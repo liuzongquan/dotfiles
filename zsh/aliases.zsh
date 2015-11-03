@@ -15,6 +15,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
+alias nvconf="vim ~/.config/nvim/init.vim"
 
 alias l="ls -lah ${colorflag}"
 alias ls="ls ${colorflag}"

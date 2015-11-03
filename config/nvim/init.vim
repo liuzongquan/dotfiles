@@ -64,6 +64,8 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'timcharper/textile.vim', { 'for': 'textile' }
 " Plug 'tclem/vim-arduino'
 " Plug 'davidoc/taskpaper.vim'
+Plug 'Valloric/YouCompleteMe'
+Plug 'klen/python-mode'
 
 call plug#end()
 
@@ -523,6 +525,53 @@ let g:vim_json_syntax_conceal = 0
 
 
 let g:SuperTabCrMapping = 0
+
+
+" python support
+let g:python_host_prog = '/usr/local/bin/python'
+
+" pymode
+" let g:pymode_lint_ignore = 'E501'
+let g:pymode_lint_checkers = ['pep8']
+let g:pymode_rope_completion = 0
+let g:pymode_rope_goto_definition_bind = '<leader>g'
+let g:pymode_rope_goto_definition_cmd = 'vnew'
+
+
+" map 'jk' for move in autocomplete popup window.
+function! OmniPopup(action)
+    if pumvisible()
+        if a:action == 'j'
+            return "\<C-N>"
+        elseif a:action == 'k'
+            return "\<C-P>"
+        endif
+    endif
+    return a:action
+endfunction
+
+inoremap <silent>j <C-R>=OmniPopup('j')<CR>
+inoremap <silent>k <C-R>=OmniPopup('k')<CR>
+
+
+" when quit vim, automatically close quickfix windows.
+" WARN: this can cause problems. be care of it.
+" if some plugin with window doesnot work correctly, check this.
+:autocmd WinEnter * if winnr('$') >= 1 && &buftype == 'quickfix' && ! &modified | quit | endif
+
+
+" do not popup preview window
+" set cot -= preview
+
+" YouCompleteMe
+let g:ycm_path_to_python_interpreter = '/usr/local/bin/python'
+let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_complete_in_comments = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_goto_buffer_command = 'vertical_split'
+nnoremap <leader>gd :YcmCompleter GoTo<CR>
+
 
 if (has("gui_running"))
     set guioptions=egmrt
