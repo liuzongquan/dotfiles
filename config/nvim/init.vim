@@ -536,6 +536,7 @@ let g:pymode_lint_checkers = ['pep8']
 let g:pymode_rope_completion = 0
 let g:pymode_rope_goto_definition_bind = '<leader>g'
 let g:pymode_rope_goto_definition_cmd = 'vnew'
+nnoremap <leader>f :PymodeLintAuto<CR>
 
 
 " map 'jk' for move in autocomplete popup window.
