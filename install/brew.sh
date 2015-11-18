@@ -32,4 +32,3 @@ brew install pyenv
 # install neovim
 brew tap neovim/neovim
 brew install --HEAD neovim
-

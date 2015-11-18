@@ -1,3 +1,19 @@
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Predefine funcs
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! BuildComposer(info)
+  if a:info.status != 'unchanged' || a:info.force
+    !cargo build --release
+    UpdateRemotePlugins
+  endif
+endfunction
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Install Plugs
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.config/nvim/plugged')
 
 " colorschemes
@@ -56,6 +72,8 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
 Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
 Plug 'wavded/vim-stylus', { 'for': ['stylus', 'markdown'] }
+Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
+" Plug 'suan/vim-instant-markdown'
 Plug 'groenewege/vim-less', { 'for': 'less' }
 Plug 'ap/vim-css-color', { 'for': 'css' }
 Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
@@ -128,6 +146,7 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 if has('autocmd') && !exists('autocommands_loaded')
     let autocommands_loaded = 1
     autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+    autocmd FileType sh setlocal ts=4 sts=4 sw=4 expandtab
     autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
     autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
     autocmd FileType html setlocal ts=4 sts=4 sw=4 noexpandtab indentkeys-=*<return>
@@ -530,14 +549,14 @@ let g:vim_json_syntax_conceal = 0
 
 
 let g:SuperTabCrMapping = 0
-
-
 " python support
 let g:python_host_prog = '/usr/local/bin/python'
 
 " pymode
 " let g:pymode_lint_ignore = 'E501'
-let g:pymode_lint_checkers = ['pep8']
+" let g:pymode_lint_checkers = ['pep8']
+" use neomake to check code. just use pymode-lint to auto correct code.
+let g:pymode_lint_on_write = 0
 let g:pymode_rope_completion = 0
 " let g:pymode_rope_goto_definition_bind = '<leader>g'
 " let g:pymode_rope_goto_definition_cmd = 'vnew'
@@ -556,7 +575,7 @@ nnoremap <leader>f :PymodeLintAuto<CR>
 "     endif
 "     return a:action
 " endfunction
-" 
+"
 " inoremap <silent>j <C-R>=OmniPopup('j')<CR>
 " inoremap <silent>k <C-R>=OmniPopup('k')<CR>
 
@@ -586,6 +605,8 @@ let g:UltiSnipsExpandTrigger="<c-s-j>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
+
+let NVIM_LISTEN_ADDRESS='/tmp/nvim '
 
 if (has("gui_running"))
     set guioptions=egmrt
