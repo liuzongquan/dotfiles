@@ -25,6 +25,7 @@ tscommand*.txt
 # program logs
 logs/
 _site/
+job_error
 
 # python ropeproject file
 .ropeproject/
