@@ -240,7 +240,7 @@ set linebreak " set soft wrapping
 set showbreak=… " show ellipsis at breaking
 
 set autoindent " automatically set indent of new line
-set smartindent
+set cindent
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups, and undo
