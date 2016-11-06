@@ -24,7 +24,7 @@ xcode-select --install
 Then, clone the dotfiles repository to your computer. This can be placed anywhere, and symbolic links will be created to reference it from your home directory.
 
 ```bash
-git clone https://github.com/nicknisi/dotfiles.git ~/.dotfiles
+git clone https://github.com/liuzongquan/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 ./install.sh
 ```
@@ -103,7 +103,7 @@ I am currently using [Hack](http://sourcefoundry.org/hack/) as my default font, 
 
 ## Install
 
-1. `git clone https://github.com/nicknisi/dotfiles.git ~/.dotfiles`
+1. `git clone https://github.com/liuzongquan/dotfiles.git ~/.dotfiles`
 1. `cd ~/.dotfiles`
 1. `./install.sh`
 
